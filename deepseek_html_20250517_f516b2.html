@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Color Notes</h1>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search notes...">
+            </div>
+        </header>
+
+        <div class="controls">
+            <button id="addTextNote" class="btn btn-primary">
+                <span>+</span> Add Text Note
+            </button>
+            <button id="addListNote" class="btn btn-outline">
+                <span>+</span> Add List Note
+            </button>
+        </div>
+
+        <div class="notes-grid" id="notesGrid"></div>
+    </div>
+
+    <!-- Add/Edit Note Modal -->
+    <div class="modal" id="noteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add New Note</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="noteForm">
+                <input type="hidden" id="noteId">
+                <input type="hidden" id="noteType">
+                
+                <div class="form-group">
+                    <label for="noteTitle">Title</label>
+                    <input type="text" id="noteTitle" required>
+                </div>
+                
+                <div class="form-group" id="textContentGroup">
+                    <label for="noteContent">Content</label>
+                    <textarea id="noteContent"></textarea>
+                </div>
+                
+                <div class="form-group" id="listContentGroup" style="display: none;">
+                    <label>List Items</label>
+                    <div id="listItemsContainer"></div>
+                    <div class="add-list-item" id="addListItem">
+                        <span>+</span> Add Item
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Color</label>
+                    <div class="color-options">
+                        <div class="color-option color-default selected" data-color="default"></div>
+                        <div class="color-option color-red" data-color="red"></div>
+                        <div class="color-option color-orange" data-color="orange"></div>
+                        <div class="color-option color-yellow" data-color="yellow"></div>
+                        <div class="color-option color-green" data-color="green"></div>
+                        <div class="color-option color-teal" data-color="teal"></div>
+                        <div class="color-option color-blue" data-color="blue"></div>
+                        <div class="color-option color-purple" data-color="purple"></div>
+                        <div class="color-option color-pink" data-color="pink"></div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelNote">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
